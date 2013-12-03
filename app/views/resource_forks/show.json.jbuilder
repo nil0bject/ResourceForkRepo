@@ -1,0 +1,1 @@
+json.extract! @resource_fork, *ResourceFork.column_names, :created_at, :updated_at

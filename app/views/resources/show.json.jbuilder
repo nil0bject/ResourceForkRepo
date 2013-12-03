@@ -1,0 +1,1 @@
+json.extract! @resource, *Resource.column_names, :created_at, :updated_at
