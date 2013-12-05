@@ -1,0 +1,3 @@
+- @resource_forks.each do |resource_fork|
+  .resource_fork
+    = link_to Base64.decode64(resource_fork.file_name), resource_fork_path(resource_fork)

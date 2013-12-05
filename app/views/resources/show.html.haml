@@ -1,0 +1,6 @@
+.data
+  = Base64.decode64(@resource.data)
+  .string
+    = @resource.hex_to_string
+  .hex
+    = @resource.string_to_hex

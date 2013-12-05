@@ -1,0 +1,3 @@
+- @resource_type.resources.each do |resource|
+  .resource
+    = link_to "#{resource.resource_id}: #{Base64.decode64(resource.name)}", resource_path(resource)
