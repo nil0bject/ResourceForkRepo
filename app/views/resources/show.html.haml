@@ -16,6 +16,5 @@
     %tr.data
       %td.ascii{valign: 'top'}
         = Base64.decode64(@resource.data)
-      }
       %td.hex{valign: 'top'}
         = @resource.string_to_hex
