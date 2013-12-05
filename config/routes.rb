@@ -1,5 +1,5 @@
 ResourceForkRepo::Application.routes.draw do
-  root 'resource_forks/index'
+  root 'resource_forks#index'
   resources :resource_forks
   resources :resource_types
   resources :resources
