@@ -17,6 +17,6 @@
         %td.name
           = link_to Base64.decode64(resource_fork.file_name), resource_fork_path(resource_fork)
         %td.type
-          = resource_fork.mac_type
+          = Base64.decode64(resource_fork.mac_type)
         %td.creator
-          = resource_fork.mac_creator
+          = Base64.decode64(resource_fork.mac_creator)
