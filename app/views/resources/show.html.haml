@@ -11,10 +11,11 @@
   %thead
     %tr
       %th ASCII
-      %th{width: '50%'} Hex
+      %th Hex
   %tbody
     %tr.data
-      %td.ascii
+      %td.ascii{valign: 'top'}
         = Base64.decode64(@resource.data)
-      %td.hex
+      }
+      %td.hex{valign: 'top'}
         = @resource.string_to_hex

@@ -1,3 +1,9 @@
-  td.ascii, td.hex {
-    word-wrap:break-word;
-  }
+td.ascii, td.hex {
+  word-wrap:break-word;
+  max-width: 500px
+}
+
+table.resource {
+  width: 1000px;
+  margin: 0px auto;
+}
