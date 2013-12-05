@@ -1,3 +1,22 @@
-- @resource_forks.each do |resource_fork|
-  .resource_fork
-    = link_to Base64.decode64(resource_fork.file_name), resource_fork_path(resource_fork)
+%table.resource_forks{border: 1}
+  %caption
+    %h1
+      = link_to "Resource Forks", resource_forks_path
+      = @resource_forks.count
+  %thead
+    %tr
+      %th Count
+      %th File Name
+      %th Type
+      %th Creator
+  %tbody
+    - @resource_forks.each do |resource_fork|
+      %tr.resource_fork
+        %td.id
+          = resource_fork.resource_types.count
+        %td.name
+          = link_to Base64.decode64(resource_fork.file_name), resource_fork_path(resource_fork)
+        %td.type
+          = resource_fork.mac_type
+        %td.creator
+          = resource_fork.mac_creator
