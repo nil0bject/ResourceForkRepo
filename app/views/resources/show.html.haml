@@ -1,6 +1,20 @@
-.data
-  = Base64.decode64(@resource.data)
-  .string
-    = @resource.hex_to_string
-  .hex
-    = @resource.string_to_hex
+.resource_forks_link
+  = link_to 'Resource Forks', resource_forks_path
+.resource_fork
+  = link_to Base64.decode64(@resource.resource_fork.file_name), resource_fork_path(@resource.resource_fork)
+%table.resource{border: 1}
+  %caption
+    %h1
+      = link_to Base64.decode64(@resource.resource_type.name), resource_type_path(@resource.resource_type)
+      = @resource.resource_id
+      = Base64.decode64(@resource.name)
+  %thead
+    %tr
+      %th ASCII
+      %th{width: '50%'} Hex
+  %tbody
+    %tr.data
+      %td.ascii
+        = Base64.decode64(@resource.data)
+      %td.hex
+        = @resource.string_to_hex

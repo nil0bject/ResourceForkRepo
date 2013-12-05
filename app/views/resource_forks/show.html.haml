@@ -1,4 +1,19 @@
-- @resource_fork.resource_types.each do |resource_type|
-  .resource_type
-    = link_to Base64.decode64(resource_type.name), resource_type_path(resource_type)
-    = "(#{resource_type.resources.count})"
+.resource_forks_link
+  = link_to 'Resource Forks', resource_forks_path
+.resource_fork
+  = link_to Base64.decode64(@resource_fork.file_name), resource_fork_path(@resource_fork)
+%table.resource{border: 1}
+  %caption
+    %h1
+      = link_to Base64.decode64(@resource_fork.file_name), resource_fork_path(@resource_fork)
+  %thead
+    %tr
+      %th{width: '15%'} Count
+      %th Resource Type
+  %tbody
+    - @resource_fork.resource_types.each do |resource_type|
+      %tr.resource
+        %td.id
+          = resource_type.resources.count
+        %td.name
+          = link_to Base64.decode64(resource_type.name), resource_type_path(resource_type)

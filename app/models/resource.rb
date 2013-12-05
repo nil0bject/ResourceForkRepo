@@ -10,6 +10,6 @@ class Resource < ActiveRecord::Base
 
   def string_to_hex
     string_data = Base64.decode64(self.data)
-    string_data.each_byte.map { |b| b.to_s(16).rjust(2, '0') }.join #string to hex
+    string_data.each_byte.map { |b| b.to_s(16).rjust(2, '0').ljust(3, ' ') }.join #string to hex
   end
 end
