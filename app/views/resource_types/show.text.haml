@@ -1,0 +1,2 @@
+- resource_urls = @resource_type.resources.map! {|resource| resource_url(resource, :text)}.join(';')
+= "#{@resource_type.name},#{resource_urls}"

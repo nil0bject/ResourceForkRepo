@@ -1,0 +1,2 @@
+- resource_type_ids = @resource_fork.resource_types.map! {|type| resource_type_url(type, :text)}.join(';')
+= "#{@resource_fork.file_name},#{@resource_fork.mac_creator},#{@resource_fork.mac_type},#{resource_type_ids}"
