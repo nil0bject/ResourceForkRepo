@@ -3,7 +3,10 @@
 .resource_fork
   = link_to Base64.decode64(@resource.resource_fork.file_name), resource_fork_path(@resource.resource_fork)
 .image
-  %img{src: "data:#{@resource.transform.content_type};base64,#{@resource.transform.data}"}
+  - if @resource.transform
+    %img{src: "data:#{@resource.transform.content_type};base64,#{@resource.transform.data}"}
+  / %audio{controls: "controls", autobuffer: "autobuffer", autoplay: "autoplay"}
+  /   %source{src: "data:audio/x-aiff;base64,#{@resource.data}"}
 %table.resource{border: 1}
   %caption
     %h1
