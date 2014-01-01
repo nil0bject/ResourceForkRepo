@@ -1,0 +1,31 @@
+<h1>Listing transforms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Content type</th>
+      <th>Resource</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transforms.each do |transform| %>
+      <tr>
+        <td><%= transform.data %></td>
+        <td><%= transform.content_type %></td>
+        <td><%= transform.resource %></td>
+        <td><%= link_to 'Show', transform %></td>
+        <td><%= link_to 'Edit', edit_transform_path(transform) %></td>
+        <td><%= link_to 'Destroy', transform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transform', new_transform_path %>

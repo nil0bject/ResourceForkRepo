@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201020507) do
+ActiveRecord::Schema.define(version: 20140101103618) do
+
+  create_table "picts", force: true do |t|
+    t.text     "png"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "picts", ["resource_id"], name: "index_picts_on_resource_id"
 
   create_table "resource_forks", force: true do |t|
     t.string   "file_name"
@@ -40,5 +49,15 @@ ActiveRecord::Schema.define(version: 20131201020507) do
   end
 
   add_index "resources", ["resource_type_id"], name: "index_resources_on_resource_type_id"
+
+  create_table "transforms", force: true do |t|
+    t.text     "data"
+    t.string   "content_type"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transforms", ["resource_id"], name: "index_transforms_on_resource_id"
 
 end
